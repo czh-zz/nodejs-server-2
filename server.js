@@ -39,8 +39,8 @@ var server = http.createServer(function (request, response) {
     try {
         content = fs.readFileSync(`./public${filePath}`)
     } catch (error) {
-        request.statusCode = 404
         content = '你访问的页面不存在'
+        request.statusCode = 404
     }
     response.setHeader('Content-Type', `${fileTypes[suffix] || 'text/html'};charset=utf-8`)
     response.write(content)
